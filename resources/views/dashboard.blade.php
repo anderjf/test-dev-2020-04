@@ -2,6 +2,12 @@
 
 @section('content')
     <div>
-        <h2 class="text-center">Welcome to Dashboard, You are logged in!</h2>
+        <h2 class="text-center">Bem-vindo ao Test Dev</h2>
+    </div>
+    <div>
+        <label>Total de turmas: 0</label>
+    </div>
+    <div>
+        <label>Total de alunos: 0</label>
     </div>
 @endsection
