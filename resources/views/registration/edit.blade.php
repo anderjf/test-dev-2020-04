@@ -45,9 +45,11 @@
                 @endforeach
             </div>
 
-            <div class="form-group mt-4">
-                <input class="btn btn-success" type="Submit" value="Adicionar">
-            </div>
+            @if($students->count() > 0)
+                <div class="form-group mt-4">
+                    <input class="btn btn-success" type="Submit" value="Adicionar">
+                </div>
+            @endif
         </form>
 
         @if ($errors->any())
