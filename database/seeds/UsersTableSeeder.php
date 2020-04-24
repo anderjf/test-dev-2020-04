@@ -15,6 +15,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Test Dev',
             'email' => 'test@test.com',
             'password' => Hash::make('123456'),
+            'created_at' => DB::raw('NOW()'),
+            'updated_at' => DB::raw('NOW()'),
         ]);
     }
 }

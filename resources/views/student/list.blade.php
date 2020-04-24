@@ -4,7 +4,7 @@
     <h2 class="text-center">Estudantes</h2>
 
     <div class="mt-2">
-        <a class="btn btn-primary" href="{{ url('/student/create') }}">Adicionar novo estudante</a>
+        <a class="btn btn-primary" href="{{ url('/student/create') }}">Adicionar Estudante</a>
     </div>
 
     <div class="mt-4">
@@ -53,17 +53,17 @@
                             {{ date('d/m/Y', strtotime($student->birth)) }}
                         </td>
                         <td>
-                            <a href="{{ url('student/edit/'.$student->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ url('student/edit/'.$student->id) }}" class="btn btn-primary">Editar</a>
                         </td>
                         <td>
-                            <button class="btn btn-danger student-delete" data-toggle="modal" data-target="#delete-modal-{{ $student->id }}" type="button">Excluir</button>
+                            <button class="btn btn-danger delete" data-toggle="modal" data-target="#delete-modal-{{ $student->id }}" type="button">Excluir</button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="delete-modal-{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="delete-modal-Label" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            Deseja realmente exclui o estudante?
+                                            Deseja realmente excluir o estudante?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>

@@ -4,7 +4,7 @@
     <h2 class="text-center">Estudantes</h2>
 
     <div class="mt-2">
-        <a class="btn btn-primary" href="{{ url('/student') }}">Voltar</a>
+        <a class="btn btn-secondary" href="{{ url('/student') }}">Voltar</a>
     </div>
 
     <div class="mt-4">

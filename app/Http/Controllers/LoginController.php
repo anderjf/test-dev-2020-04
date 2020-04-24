@@ -21,7 +21,7 @@ class LoginController extends Controller
             return redirect()->route('dashboard');
         }
 
-        return $this->show();
+        return redirect('/login')->with('error', 'Dados inválidos!');
     }
 
     public function logout()

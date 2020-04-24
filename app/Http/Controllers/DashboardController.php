@@ -6,7 +6,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $users = \App\User::all();
-        return view('dashboard', compact('users'));
+        $totalCourses = \App\Course::count();
+        $totalStudents = \App\Student::count();
+
+        return view('dashboard', ['totalCourses' => $totalCourses, 'totalStudents' => $totalStudents]);
     }
 }

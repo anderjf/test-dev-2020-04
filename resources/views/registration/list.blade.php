@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center">Turmas</h2>
+    <h2 class="text-center">Inscrições</h2>
 
     <div class="mt-2">
-        <a class="btn btn-primary" href="{{ url('/course/create') }}">Adicionar Turma</a>
+        <a class="btn btn-secondary" href="{{ url('/course') }}">Voltar</a>
+        <a class="btn btn-primary" href="{{ url('/registration/edit/'.$course->id) }}">Fazer Inscrição</a>
     </div>
 
     <div class="mt-4">
@@ -23,50 +24,51 @@
     </div>
 
     <div class="mt-4">
+    
+        <h3>Turma: {{ $course->name }}</h3>
+
         <table class="table table-striped"">
             <thead>
                 <tr>
-                    <th scope="col">Turma</th>
-                    <th scope="col">Total de Alunos</th>
-                    <th scope="col" class="col-md-4" colspan=3></th>
+                    <th scope="col">Estudante</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col" class="col-md-1"></th>
                 </tr>
             </thead>
             <tbody>
-                @if($courses->count() == 0)
+                @if($registrationStudents->count() == 0)
                     <tr>
                     <td scope="row" colspan=3>
-                            Nenhuma turma cadastrada
+                            Nenhum aluno inscrito
                         </td>
                     </tr>
                 @endif
 
-                @foreach ($courses as $course)
+                @foreach ($registrationStudents as $student)
                     <tr>
                         <td scope="row">
-                            {{ $course->name }}
+                            {{ $student->name }}
+                        </td>
+                        <td scope="row">
+                            {{ $student->gender }}
+                        </td>
+                        <td scope="row">
+                            {{ date('d/m/Y', strtotime($student->birth)) }}
                         </td>
                         <td>
-                            {{ $course->students_total }}
-                        </td>
-                        <td>
-                            <a href="{{ url('registration/'.$course->id) }}" class="btn btn-secondary">Listar Estudantes</a>
-                        </td>
-                        <td>
-                            <a href="{{ url('course/edit/'.$course->id) }}" class="btn btn-primary">Editar</a>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{ $course->id }}" type="button">Excluir</button>
+                            <button class="btn btn-danger delete" data-toggle="modal" data-target="#delete-modal-{{ $student->id }}" type="button">Excluir</button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="delete-modal-{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="delete-modal-Label" aria-hidden="true">
+                            <div class="modal fade" id="delete-modal-{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="delete-modal-Label" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            Deseja realmente excluir a turma?
+                                            Deseja realmente excluir o estudante da turma?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                                            <form action="{{ url('course/'.$course->id)}}" method="post">
+                                            <form action="{{ url('registration/'.$course->id.'/'.$student->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-primary" type="submit">Sim</button>
@@ -80,7 +82,13 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
 
-    {{ $courses->links() }}
+        @if ($errors->any())
+            <div class="bg-danger text-white py-2 px-4">
+                @foreach ($errors->all() as $error)
+                    <p class="mb-0">{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+    </div>
 @endsection

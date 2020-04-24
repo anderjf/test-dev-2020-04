@@ -9,17 +9,18 @@ class StudentController extends Controller
 {
     public function list()
     {
-        $students = \App\Student::orderBy('name')->paginate(5);
+        $students = \App\Student::orderBy('name')->paginate(20);
 
         return view('student.list', ['students' => $students]);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('student.create');
     }
 
-    public function register(StudentRequest $requestFields) {
-
+    public function register(StudentRequest $requestFields)
+    {
         $student = \App\Student::create([
             'name' => $requestFields->name,
             'gender' => $requestFields->gender,
@@ -29,8 +30,8 @@ class StudentController extends Controller
         return redirect('/student')->with('success', 'Estudante adicionado!');
     }
 
-    public function edit($id) {
-
+    public function edit($id)
+    {
         $student = \App\Student::find($id);
 
         if (!$student) {
@@ -40,8 +41,8 @@ class StudentController extends Controller
         return view('student.edit', ['student' => $student]);
     }
 
-    public function update(StudentRequest $requestFields, $id) {
-
+    public function update(StudentRequest $requestFields, $id)
+    {
         $student = \App\Student::find($id);
         $student->name = $requestFields->name;
         $student->gender = $requestFields->gender;
@@ -52,8 +53,12 @@ class StudentController extends Controller
         return redirect('/student')->with('success', 'Estudante atualizado!');
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
+        // Delete registrations of the student
+        \App\Registration::where('student_id', '=', $id)->delete();
 
+        // Delete student
         $student = \App\Student::find($id);
         $student->delete();
 

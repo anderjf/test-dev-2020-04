@@ -27,13 +27,12 @@
                                     <div class="navbar-nav align-items-center">
                                         @auth
                                             <a class="nav-item nav-link border border-white @if(Request::path() === '/') active @endif" href="{{ url('/') }}">Dashboard</a>
-                                            <a class="nav-item nav-link border border-white @if(strpos(Request::path(), 'course') === 0) active @endif" href="{{ url('/course') }}">Turmas</a>
+                                            <a class="nav-item nav-link border border-white @if(strpos(Request::path(), 'course') === 0 || strpos(Request::path(), 'registration') === 0) active @endif" href="{{ url('/course') }}">Turmas</a>
                                             <a class="nav-item nav-link border border-white @if(strpos(Request::path(), 'student') === 0) active @endif" href="{{ url('/student') }}">Alunos</a>
-                                            <a class="nav-item nav-link border border-white @if(strpos(Request::path(), 'registration') === 0) active @endif" href="{{ url('/registration') }}">Inscrições</a>
                                             <a class="nav-item">
                                                 <form action="/logout" method="POST">
                                                     @csrf
-                                                    <input type="submit" value="Logout" class="btn btn-outline-danger">
+                                                    <input type="submit" value="Sair" class="btn btn-outline-danger">
                                                 </form>
                                             </a>
                                         @else
