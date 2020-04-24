@@ -2,10 +2,6 @@
 
 Projeto com fim de facilitar o controle de turmas e alunos de uma instituição, tendo a possibilidade de fazer o cadastro de turmas e seus alunos. 
 
-## Cenário
-
-Assumindo o cenário em que uma organização possui diversas turmas de alunos e que cada uma destas turmas necessitam de um controle de inscrições.
-
 ## Objetivo do projeto
 
 O intuito deste teste é avaliar a capacidade do candidato em relação aos seguintes critérios:
