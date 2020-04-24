@@ -44,14 +44,14 @@ Fork realizado do projeto `https://github.com/SujithJr/laravel-auth-custom` por 
 ### Iniciar o servidor de desenvolvimento
 `php artisan serve`
 
+## Dados para realizar o login na aplicação
+
+Usuário: `test@test.com`
+Senha: `123456`
+
 ## Melhorias futuras
 
 - Adicionar filtro de busca nas listagens
 - Adicionar controle de `transaction` nos `inserts`, `updates` e `deletes`
 - Adicionar logs na aplicação
 - Adicionar todos os textos nos arquivos de tradução
-
-## Dados para realizar o login
-
-Usuário: `test@test.com`
-Senha: `123456`
