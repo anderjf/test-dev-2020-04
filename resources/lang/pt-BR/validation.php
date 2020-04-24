@@ -177,7 +177,8 @@ return [
         'year'      => 'ano',
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
-        'students' => 'aluno'
+        'students'  => 'aluno',
+        'birth'     => 'data de nascimento'
     ],
 
 ];
