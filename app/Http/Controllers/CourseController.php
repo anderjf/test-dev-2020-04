@@ -4,12 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CourseRequest;
-use App\Traits\RegisterCourse;
 
 class CourseController extends Controller
 {
-    use RegisterCourse;
-
     public function list()
     {
         $courses = \App\Course::orderBy('name')->paginate(5);
@@ -22,7 +19,9 @@ class CourseController extends Controller
     }
 
     public function register(CourseRequest $requestFields) {
-        $this->registerCourse($requestFields);
+        $course = \App\Course::create([
+            'name' => $requestFields->name,
+        ]);
 
         return redirect('/course')->with('success', 'Turma adicionda!');;
     }
@@ -40,14 +39,17 @@ class CourseController extends Controller
 
     public function update(CourseRequest $requestFields, $id) {
 
-        $this->updateCourse($id, $requestFields);
+        $course = \App\Course::find($id);
+        $course->name = $requestFields->name;
+        $course->save();
 
         return redirect('/course')->with('success', 'Turma atualizada!');
     }
 
     public function delete($id) {
 
-        $this->deleteCourse($id);
+        $course = \App\Course::find($id);
+        $course->delete();
 
         return redirect('/course')->with('success', 'Turma excluída!');
     }
