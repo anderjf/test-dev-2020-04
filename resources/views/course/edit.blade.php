@@ -9,12 +9,18 @@
 
     <div class="mt-4">
     
-        <h3>Adicionar Turma</h3>
+        <h3>Alterar Turma</h3>
         <div class="d-flex align-items-start flex-wrap">
             <form action="/course/{{ $course->id }}" method="POST">
                 @csrf
-                <p><input type="text" name="name" placeholder="Enter Name" value="{{ $course->name }}"></p>
-                <p><input class="btn btn-success" type="Submit" value="Adicionar"></p>
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ $course->name }}">
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-success" type="Submit" value="Alterar">
+                </div>
             </form>
         </div>
 

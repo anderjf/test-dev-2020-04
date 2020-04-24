@@ -19,11 +19,12 @@ class CourseController extends Controller
     }
 
     public function register(CourseRequest $requestFields) {
+
         $course = \App\Course::create([
             'name' => $requestFields->name,
         ]);
 
-        return redirect('/course')->with('success', 'Turma adicionda!');;
+        return redirect('/course')->with('success', 'Turma adicionada!');
     }
 
     public function edit($id) {

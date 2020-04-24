@@ -15,8 +15,11 @@ Route::get('/login', 'LoginController@show')->name('login')->middleware('guest')
 Route::post('/login', 'LoginController@authenticate');
 
 Route::middleware(['auth'])->group(function () {
+    
+    // Home
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
+    // Course routes 
     Route::get('/course', 'CourseController@list')->name('course.list');
     Route::get('/course/create', 'CourseController@create')->name('course.create');
     Route::get('/course/edit/{id}', 'CourseController@edit')->where('id', '[0-9]+')->name('course.edit');
@@ -25,9 +28,18 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/course/{id}', 'CourseController@update')->where('id', '[0-9]+')->name('update');
     Route::delete('/course/{id}', 'CourseController@delete')->where('id', '[0-9]+')->name('delete');
 
-    Route::get('/student', 'StudentController@index')->name('student');
+    // Student routes 
+    Route::get('/student', 'StudentController@list')->name('student.list');
+    Route::get('/student/create', 'StudentController@create')->name('student.create');
+    Route::get('/student/edit/{id}', 'StudentController@edit')->where('id', '[0-9]+')->name('student.edit');
 
+    Route::post('/student', 'StudentController@register')->name('register');
+    Route::post('/student/{id}', 'StudentController@update')->where('id', '[0-9]+')->name('update');
+    Route::delete('/student/{id}', 'StudentController@delete')->where('id', '[0-9]+')->name('delete');
+
+    // Registration routes
     Route::get('/registration', 'RegistrationController@index')->name('registration');
 
+    // Logout
     Route::post('/logout', 'LoginController@logout');
 });

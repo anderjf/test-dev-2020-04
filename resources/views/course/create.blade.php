@@ -13,8 +13,15 @@
         <div class="d-flex align-items-start flex-wrap">
             <form action="/course" method="POST">
                 @csrf
-                <p><input type="text" name="name" placeholder="Enter Name" value="{{ old('name') }}"></p>
-                <p><input class="btn btn-success" type="Submit" value="Adicionar"></p>
+
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-success" type="Submit" value="Adicionar">
+                </div>
             </form>
         </div>
 
