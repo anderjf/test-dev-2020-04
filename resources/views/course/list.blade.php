@@ -49,7 +49,7 @@
                             {{ $course->students_total }}
                         </td>
                         <td>
-                            <a href="{{ url('registration/'.$course->id) }}" class="btn btn-secondary">Listar Estudantes</a>
+                            <a href="{{ url('registration/'.$course->id) }}" class="btn btn-secondary">Listar Alunos</a>
                         </td>
                         <td>
                             <a href="{{ url('course/edit/'.$course->id) }}" class="btn btn-primary">Editar</a>

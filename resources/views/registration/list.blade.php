@@ -30,7 +30,7 @@
         <table class="table table-striped"">
             <thead>
                 <tr>
-                    <th scope="col">Estudante</th>
+                    <th scope="col">Aluno</th>
                     <th scope="col">Sexo</th>
                     <th scope="col">Data de Nascimento</th>
                     <th scope="col" class="col-md-1"></th>
@@ -64,7 +64,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            Deseja realmente excluir o estudante da turma?
+                                            Deseja realmente excluir o aluno da turma?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>

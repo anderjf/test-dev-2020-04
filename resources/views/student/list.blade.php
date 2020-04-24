@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center">Estudantes</h2>
+    <h2 class="text-center">Alunos</h2>
 
     <div class="mt-2">
-        <a class="btn btn-primary" href="{{ url('/student/create') }}">Adicionar Estudante</a>
+        <a class="btn btn-primary" href="{{ url('/student/create') }}">Adicionar Aluno</a>
     </div>
 
     <div class="mt-4">
@@ -26,7 +26,7 @@
         <table class="table table-striped"">
             <thead>
                 <tr>
-                    <th scope="col">Estudante</th>
+                    <th scope="col">Aluno</th>
                     <th scope="col">Sexo</th>
                     <th scope="col">Data de Nascimento</th>
                     <th scope="col" class="col-md-2" colspan=2></th>
@@ -36,7 +36,7 @@
                 @if($students->count() == 0)
                     <tr>
                     <td scope="row" colspan=3>
-                            Nenhum estudante cadastrado
+                            Nenhum aluno cadastrado
                         </td>
                     </tr>
                 @endif
@@ -63,7 +63,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            Deseja realmente excluir o estudante?
+                                            Deseja realmente excluir o aluno?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>

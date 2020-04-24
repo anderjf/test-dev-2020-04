@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center">Estudantes</h2>
+    <h2 class="text-center">Alunos</h2>
 
     <div class="mt-2">
         <a class="btn btn-secondary" href="{{ url('/student') }}">Voltar</a>
@@ -9,7 +9,7 @@
 
     <div class="mt-4">
 
-        <h3>Adicionar Estudante</h3>
+        <h3>Adicionar Aluno</h3>
         <div class="d-flex align-items-start flex-wrap">
             <form action="/student" method="POST">
                 @csrf
