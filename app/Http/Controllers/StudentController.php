@@ -27,7 +27,7 @@ class StudentController extends Controller
             'birth' => $requestFields->birth,
         ]);
 
-        return redirect('/student')->with('success', 'Estudante adicionado!');
+        return redirect('/student')->with('success', 'Aluno adicionado!');
     }
 
     public function edit($id)
@@ -35,7 +35,7 @@ class StudentController extends Controller
         $student = \App\Student::find($id);
 
         if (!$student) {
-            return redirect('/student')->with('error', 'Estudante inválido!');
+            return redirect('/student')->with('error', 'Aluno inválido!');
         }
 
         return view('student.edit', ['student' => $student]);
@@ -50,7 +50,7 @@ class StudentController extends Controller
         
         $student->save();
 
-        return redirect('/student')->with('success', 'Estudante atualizado!');
+        return redirect('/student')->with('success', 'Aluno atualizado!');
     }
 
     public function delete($id)
@@ -62,6 +62,6 @@ class StudentController extends Controller
         $student = \App\Student::find($id);
         $student->delete();
 
-        return redirect('/student')->with('success', 'Estudante excluído!');
+        return redirect('/student')->with('success', 'Aluno excluído!');
     }
 }

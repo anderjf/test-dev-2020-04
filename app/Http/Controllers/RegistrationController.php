@@ -70,6 +70,6 @@ class RegistrationController extends Controller
                                 ->first();
         $student->delete();
 
-        return redirect('/registration/'.$courseId)->with('success', 'Estudante excluído da turma!');
+        return redirect('/registration/'.$courseId)->with('success', 'Aluno excluído da turma!');
     }
 }
